@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Nexus - Stationery Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="java nova.js"></script>
+
+    
+    <style>
+        /* Default theme - Dark mode */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #ffcc66;
+    text-align: center;
+    
+}
+
+header {
+    background-color: #333;
+}
+
+footer {
+    background-color: #333;
+}
+
+/* Light Mode */
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+body.light-mode header {
+    background-color: #fff;
+}
+
+body.light-mode footer {
+    background-color: #fff;
+}
+
+/* Button for toggling */
+#theme-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ffcc66;
+    
+    transition: color 0.3s ease;
+    margin-left: auto;
+}
+
+#theme-toggle-btn:hover {
+    color: #fff;
+}
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #ffcc66;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes headerGlow {
+    0% { background: #333; box-shadow: 0 0 10px #ffcc66; }
+    50% { background: #444; box-shadow: 0 0 20px #ffd699; }
+    100% { background: #333; box-shadow: 0 0 10px #ffcc66; }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    position: relative;
+     border-bottom: 2px solid #ffcc66;
+    animation: borderGlow 3s infinite alternate ease-in-out;
+}
+
+
+        .logo img {
+            height: 100px;
+            width: 100px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffcc66;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: #ffcc66;
+        }
+
+        .hero {
+            padding: 50px;
+            background: url('school-supplies.jpg') no-repeat center;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .section {
+            padding: 40px;
+            border-bottom: 2px solid #ffcc66;
+            display: inline-block;
+            margin: 10px;
+            width: 100%;
+            max-width: 300px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 60%;
+        }
+
+        .section:hover {
+            transform: translateY(-30px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.7);
+            opacity: 100%;
+        }
+
+        .section h2 {
+            color: #ffcc66;
+        }
+
+        button {
+            background-color: #ffcc66;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s ease, background-color 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #e6b800;
+        }
+
+        button:active {
+            transform: scale(1);
+        }
+
+        footer {
+            padding: 20px;
+            background-color: #333;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-section {
+            margin: 10px 0;
+        }
+
+      
+    .review-container {
+        width: 100%;
+        max-width: 400px;
+        padding: 20px;
+        background: #222;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: box-shadow 0.3s ease;
+        text-align: center;
+    }
+    .star-rating {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+    .star {
+        font-size: 24px;
+        color: #666;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    .star:hover,
+    .star.active {
+        color: #ffcc66;
+        transform: scale(1.2);
+    }
+    #thank-you-popup {
+        margin-top: 10px;
+        background: #ffcc66;
+        color: #222;
+        padding: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: opacity 0.5s, transform 0.3s;
+    }
+    #thank-you-popup.show {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+/* Hover effect for review container */
+.review-container:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+
+        textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    resize: none;
+    transition: background-color 0.3s;
+}
+textarea:focus {
+    background-color: #444;
+}
+
+.submit-btn {
+    margin-top: 10px;
+    background: #ffcc66;
+    color: #222;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+.submit-btn:hover {
+    transform: scale(1.1);
+    background-color: #e6b800;
+}
+
+.submit-btn:active {
+    transform: scale(1);
+}
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc66;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section1{
+            padding-top: 50px;
+            padding-bottom: 30px ;
+          
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section {
+                width: 100%;
+                margin: 20px 0;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
+            }
+            nav.active ul {
+                display: flex;
+            }
+            nav a {
+                font-size: 16px;
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+            }
+            nav a:hover {
+                background-color: #444;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .hero {
+                padding: 30px;
+            }
+            .footer-content {
+                flex-direction: column;
+            }
+            .review-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="LOGO.png" alt="Nova Nexus Logo">
+        </div>
+        <nav>
+            <button id="theme-toggle-btn">Profile</button>
+        <button id="theme-toggle-btn" id="theme"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+          </svg></button>
+        </nav>
+        <button id="theme-toggle-btn">🌙</button>
+
+        <nav>
+            <div class="hamburger" id="hamburger">
+                
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#cafeteria">Cafeteria</a></li>
+                <li><a href="#canteen">Canteen</a></li>
+                <li><a href="#store">Store</a></li>
+               
+            </ul>
+        </nav>
+        
+    </header>
+
+    <div class="section1">
+        
+        <section id="home" class="hero">
+            <h1>Welcome to E-STORE</h1>
+            <p>entha vende machuu..</p>
+        </section>
+    
+        <section id="cafeteria" class="section">
+            <h2>Cafeteria</h2>
+            <p>oro naaranga vellam kaachiyaalo.. 🫣</p>
+        </section>
+    
+        <section id="canteen" class="section">
+            <h2>Canteen</h2>
+            <p>foooodeeee 😋</p>
+        </section>
+    
+        <section id="store" class="section">
+            <h2>Stationery Store</h2>
+            <p>padikkanam valaranam 😊</p>
+        </section>
+    </div>
+     <!-- Creative Designs Section -->
+<div class="creative-designs">
+    <h2>muthalaalii janga jaga jagaaa...</h2>
+    <p>todays special offers!!.</p>
+    <div class="designs-container">
+        <div class="designs-track">
+            <img src="LOGO.jpeg" alt="Design 1">
+            <img src="design2.jpg" alt="Design 2">
+            <img src="design3.jpg" alt="Design 3">
+            <img src="design4.jpg" alt="Design 4">
+            <img src="design5.jpg" alt="Design 5">
+            <img src="design6.jpg" alt="Design 6">
+            <!-- Duplicate images for seamless looping -->
+            <img src="LOGO.jpeg" alt="Design 1">
+            <img src="design2.jpg" alt="Design 2">
+            <img src="design3.jpg" alt="Design 3">
+            <img src="design4.jpg" alt="Design 4">
+            <img src="design5.jpg" alt="Design 5">
+            <img src="design6.jpg" alt="Design 6">
+        </div>
+    </div>
+</div>
+
+<!-- CSS for Scrolling and Hover Effects -->
+<style>
+    .creative-designs {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #111;
+        color: #ffcc66;
+        overflow: hidden;
+    }
+
+    .designs-container {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .designs-track {
+        display: flex;
+        gap: 20px;
+        width: max-content;
+        animation: scrollLoop 10s linear infinite; /* Continuous scrolling */
+    }
+
+    .designs-track img {
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    /* Infinite scrolling effect */
+    @keyframes scrollLoop {
+        from { transform: translateX(0); }
+        to { transform: translateX(-10%); } /* Moves halfway, then loops */
+    }
+
+    /* Pause on hover */
+    .designs-container:hover .designs-track {
+        animation-play-state: paused;
+    }
+
+    /* Zoom on hover */
+    .designs-track img:hover {
+        transform: scale(1.4);
+        cursor: pointer;
+    }
+</style>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>NOVA Nexus is a dynamic and innovative online platform designed to simplify and enhance the campus experience by seamlessly connecting students, faculty, and staff with on-campus services such as cafeterias, canteens, and stationery stores. Whether you're looking to grab a quick bite, stock up on stationery, or place an order for your favorite drink, NOVA Nexus brings all these services together in one convenient online space.
+
+                    The platform is built to serve both students and staff, providing them with separate login systems—students log in using their student ID and staff log in using their staff ID, ensuring tailored access to relevant features. Through NOVA Nexus, users can easily browse products, check availability, place orders, and even track their purchases—all without the hassle of waiting in long lines.
+                    
+                    Our mission is to create a seamless, modern, and efficient campus shopping experience, reducing wait times, improving access to services, and supporting a digital-first, cashless environment. With real-time inventory updates, easy online payment options, and dedicated vendor management, NOVA Nexus is transforming the way campus communities interact with their daily essentials.
+                    
+                    Join us in shaping the future of campus convenience!.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: novanexus@gmail.com</p>
+                <p>Phone: 9567197310</p>
+            </div>
+            <div class="footer-section review-container">
+                <h3>Customer Reviews</h3>
+                <div class="star-rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+                <textarea placeholder="Write a review..."></textarea>
+                <button class="submit-btn" onclick="submitReview()">Submit</button>
+                <div id="thank-you-popup" class="hidden">Thank you for your feedback! ⭐</div>
+            </div>
+            <div class="footer-section stats">
+                <div class="stat-item">📚 500+ Products</div>
+                <div class="stat-item">😊 1000+ Happy Customers</div>
+                <div class="stat-item">🏫 5+ Partners</div>
+            </div>
+        </div>
+        
+        <p>&copy; 2025 Nova Nexus. All rights reserved.</p>
+    </footer>
+ 
+
+
+
+    <script src="homejava.js"></script>
+</body>
+</html>
