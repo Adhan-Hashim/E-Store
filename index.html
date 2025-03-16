@@ -6,22 +6,30 @@
     <title>Welcome Page</title>
     <link rel="stylesheet" href="login.css">
 </head>
+
 <body>
     <div class="container">
         <div class="welcome-box">
             <h1>Welcome to <span class="brand">Nova Nexus</span></h1>
             <img src="LOGO.png" alt="Nova Nexus Logo" class="logo">
             <p>Adich keri vaa..</p>
-            <div class="input-group">
-                <input type="text" placeholder="USERNAME">
-                <input type="text" placeholder="PASSWORD">
-            </div>
-            <div class="terms">
-                <input type="checkbox" id="terms">
-                <label for="terms">I agree with Terms & Conditions!</label>
-            </div>
-            <button id="signInBtn"><a href="nova test3.html">
-                SIGN UP</a></button>
+          
+            <!-- LOGIN FORM -->
+            <form action="login.php" method="POST">
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="USERNAME" required>
+                    <input type="password" name="password" placeholder="PASSWORD" required>
+                </div>
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree with Terms & Conditions!</label>
+                </div>
+                <button type="submit">LOGIN</button>
+            </form>
+
+            <!-- REGISTER BUTTON -->
+            <button onclick="window.location.href='register.html'">REGISTER</button>
+
         </div>
     </div>
     <script src="script.js"></script>
